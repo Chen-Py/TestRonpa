@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dy3yqd3vtrp3t"]
+
+[ext_resource type="Script" uid="uid://cw3bkc01wi2lc" path="res://scenes/3dscene/bullet.gd" id="1_tt3to"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tt3to"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tt3to"]
+radius = 0.1
+height = 0.2
+
+[node name="Bullet" type="Node3D" unique_id=832505897]
+script = ExtResource("1_tt3to")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1833262875]
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_tt3to")
+draw_pass_1 = SubResource("SphereMesh_tt3to")
+
+[node name="Timer" type="Timer" parent="." unique_id=320481599]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

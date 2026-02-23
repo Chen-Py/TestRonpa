@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://blj3jhliukg0a"]
+
+[ext_resource type="Script" uid="uid://c3egm36qgxchn" path="res://scenes/3dscene/main_character.gd" id="1_ig48j"]
+[ext_resource type="PackedScene" uid="uid://dy3yqd3vtrp3t" path="res://scenes/3dscene/Bullet.tscn" id="2_q8cyq"]
+[ext_resource type="Script" uid="uid://36cbmd5mf316" path="res://scenes/3dscene/control_camera.gd" id="2_tqm6u"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5fb3c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjmho"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1kc1q"]
+radius = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_cslr0"]
+radius = 0.4
+height = 0.8
+
+[node name="MainCharacter" type="CharacterBody3D" unique_id=1525779472 node_paths=PackedStringArray("camera")]
+script = ExtResource("1_ig48j")
+camera = NodePath("SpringArm3D/Camera3D")
+bullet_scene = ExtResource("2_q8cyq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=177062513]
+mesh = SubResource("CapsuleMesh_5fb3c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=613404942]
+shape = SubResource("CapsuleShape3D_gjmho")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=71371549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8891296, 0)
+shape = SubResource("SphereShape3D_1kc1q")
+spring_length = 5.0
+script = ExtResource("2_tqm6u")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=532708834]
+fov = 60.0
+
+[node name="head" type="MeshInstance3D" parent="." unique_id=812162975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4458866, 0)
+mesh = SubResource("SphereMesh_cslr0")
