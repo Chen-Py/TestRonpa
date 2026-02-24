@@ -19,17 +19,25 @@ func _rotate_camera(relative: Vector2) -> void:
 	spring_arm.rotation_degrees.x -= relative.y * mouse_sensitivity
 	spring_arm.rotation_degrees.x = clamp(spring_arm.rotation_degrees.x, -70, 30)
 
+
 func _unhandled_input(event: InputEvent) -> void:
-	
+	# 1. 处理拖拽 (视角旋转)
 	if event is InputEventScreenDrag:
+		# 严格限制：只有手指在屏幕右半部分时才旋转
 		if event.position.x > get_viewport().get_visible_rect().size.x / 2.0:
 			drag_distance += event.relative.length()
 			_rotate_camera(event.relative)
-		if event is InputEventScreenTouch:
+			return # 既然是拖拽，就不再往下执行点击判断
+
+	# 2. 处理点击 (发射) - 注意：这个 if 必须和上面的 ScreenDrag 平级！
+	if event is InputEventScreenTouch:
+		# 同样限制在右半屏，避免干扰左手摇杆
+		if event.position.x > get_viewport().get_visible_rect().size.x / 2.0:
 			if event.pressed:
 				drag_distance = 0.0
 			else:
-				if drag_distance < 10.0: 
+				# 手指抬起时，如果移动距离很小，判断为点击
+				if drag_distance < 15.0: 
 					shoot()
 
 func _physics_process(delta: float) -> void:
