@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tvhj1qh81ob5"
-path.s3tc="res://.godot/imported/background.jpeg-4ace736b3b1fbe75ada471cd9290ae90.s3tc.ctex"
-path.etc2="res://.godot/imported/background.jpeg-4ace736b3b1fbe75ada471cd9290ae90.etc2.ctex"
+uid="uid://8oomrwjic08p"
+path.s3tc="res://.godot/imported/monokuma.png-d9e2dcda720d420cb4b464eb0b53787e.s3tc.ctex"
+path.etc2="res://.godot/imported/monokuma.png-d9e2dcda720d420cb4b464eb0b53787e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/background.jpeg"
-dest_files=["res://.godot/imported/background.jpeg-4ace736b3b1fbe75ada471cd9290ae90.s3tc.ctex", "res://.godot/imported/background.jpeg-4ace736b3b1fbe75ada471cd9290ae90.etc2.ctex"]
+source_file="res://resources/monokuma.png"
+dest_files=["res://.godot/imported/monokuma.png-d9e2dcda720d420cb4b464eb0b53787e.s3tc.ctex", "res://.godot/imported/monokuma.png-d9e2dcda720d420cb4b464eb0b53787e.etc2.ctex"]
 
 [params]
 

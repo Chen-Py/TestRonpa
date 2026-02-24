@@ -2,6 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://blj3jhliukg0a" path="res://scenes/3dscene/main_character.tscn" id="1_tlo7v"]
 [ext_resource type="Texture2D" uid="uid://tvhj1qh81ob5" path="res://assets/background.jpeg" id="2_1kc1q"]
+[ext_resource type="Script" uid="uid://chvigj2efp557" path="res://scenes/3dscene/spawner.gd" id="3_4rmgp"]
+[ext_resource type="PackedScene" uid="uid://fvo4rcwl0y63" path="res://scenes/3dscene/kuma.tscn" id="4_mjw6c"]
+[ext_resource type="Script" uid="uid://ow6p8a5equkj" path="res://addons/virtual_joystick_plus/virtual_joystick_plus.gd" id="5_gupau"]
+[ext_resource type="Texture2D" uid="uid://wer6gww43sum" path="res://addons/virtual_joystick_plus/resources/textures/joystick_texture_5.png" id="6_w25vs"]
+[ext_resource type="Texture2D" uid="uid://bu0e0wx2ypct5" path="res://addons/virtual_joystick_plus/resources/textures/stick_texture_5.png" id="7_1rkcs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_grwth"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,6 +20,9 @@ background_mode = 2
 sky = SubResource("Sky_s6dok")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rmgp"]
+albedo_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4msxo"]
 size = Vector3(30, 1, 30)
@@ -49,6 +57,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Ground" type="MeshInstance3D" parent="." unique_id=1532300847]
+material_override = SubResource("StandardMaterial3D_4rmgp")
 mesh = SubResource("BoxMesh_4msxo")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground" unique_id=673910202]
@@ -57,6 +66,7 @@ mesh = SubResource("BoxMesh_4msxo")
 shape = SubResource("ConvexPolygonShape3D_1kc1q")
 
 [node name="MainCharacter2" parent="." unique_id=1525779472 instance=ExtResource("1_tlo7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8783898, 0)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1961777617]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8030586, 0)
@@ -66,3 +76,28 @@ mesh = SubResource("CylinderMesh_4msxo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D" unique_id=1489406570]
 shape = SubResource("ConcavePolygonShape3D_1kc1q")
+
+[node name="Spawner" type="Node3D" parent="." unique_id=602356739]
+script = ExtResource("3_4rmgp")
+kuma_scene = ExtResource("4_mjw6c")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=873168411]
+wait_time = 2.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813596828]
+
+[node name="VirtualJoystickPlus" type="Control" parent="CanvasLayer" unique_id=1317461769]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 45.0
+offset_top = 307.0
+offset_right = 345.0
+offset_bottom = 607.0
+pivot_offset = Vector2(150, 150)
+script = ExtResource("5_gupau")
+joystick_mode = 1
+joystick_texture = ExtResource("6_w25vs")
+stick_texture = ExtResource("7_1rkcs")
+metadata/_custom_type_script = "uid://ow6p8a5equkj"
