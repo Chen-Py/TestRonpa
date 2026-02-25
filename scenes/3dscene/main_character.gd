@@ -11,6 +11,9 @@ const mouse_sensitivity = 0.1
 @onready var spring_arm: SpringArm3D = $SpringArm3D
 var drag_distance = 0.0
 
+func _ready():
+	add_to_group("player")
+
 func _rotate_camera(relative: Vector2) -> void:
 	spring_arm.rotation_degrees.y -= relative.x * mouse_sensitivity
 	spring_arm.rotation_degrees.x -= relative.y * mouse_sensitivity

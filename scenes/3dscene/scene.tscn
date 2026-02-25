@@ -98,7 +98,6 @@ offset_bottom = 607.0
 pivot_offset = Vector2(150, 150)
 script = ExtResource("5_gupau")
 joystick_mode = 1
-visibility_mode = 1
 joystick_texture = ExtResource("6_w25vs")
 stick_texture = ExtResource("7_1rkcs")
 metadata/_custom_type_script = "uid://ow6p8a5equkj"

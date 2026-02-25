@@ -5,6 +5,7 @@
 .import/
 .godot/
 
+android/*
 # Builds/export directory
 # builds/**/*
 # !builds/.gdignore

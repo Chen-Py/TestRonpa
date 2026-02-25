@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://cvc42inud8fxx" path="res://scenes/menu/menu.gd" id="5"]
 [ext_resource type="Script" uid="uid://baky6bgu7psf2" path="res://scenes/menu/godot_version.gd" id="5_fdyjp"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_y1o0p"]
+font_size = 28
+
 [node name="Menu" type="Control" unique_id=1843910402]
 layout_mode = 3
 anchors_preset = 15
@@ -142,6 +145,17 @@ layout_mode = 2
 theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
 text = "Developer 3"
+
+[node name="Label" type="Label" parent="." unique_id=254874077]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 483.0
+offset_right = 1021.0
+offset_bottom = 566.0
+text = "滑动左下屏幕操作摇杆移动，滑动右半屏幕控制视角，点击右半屏幕射击
+被黑白熊抓到则游戏结束"
+label_settings = SubResource("LabelSettings_y1o0p")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
