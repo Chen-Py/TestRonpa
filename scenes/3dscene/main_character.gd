@@ -12,36 +12,28 @@ const mouse_sensitivity = 0.1
 var drag_distance = 0.0
 
 func _rotate_camera(relative: Vector2) -> void:
-	# 左右旋转 SpringArm (Y轴)
 	spring_arm.rotation_degrees.y -= relative.x * mouse_sensitivity
-	
-	# 上下旋转 SpringArm (X轴)，并限制角度防止翻转
 	spring_arm.rotation_degrees.x -= relative.y * mouse_sensitivity
 	spring_arm.rotation_degrees.x = clamp(spring_arm.rotation_degrees.x, -70, 30)
 
 
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event is InputEventScreenDrag:
-	## 1. 处理拖拽 (视角旋转)
-		#var screen_half = get_viewport().get_visible_rect().size.x / 2.0
-		#if event.position.x < screen_half:
-			#return
-		#drag_distance += event.relative.length()
-		#_rotate_camera(event.relative)
-		#return # 既然是拖拽，就不再往下执行点击判断
-#
-	## 2. 处理点击 (发射) - 注意：这个 if 必须和上面的 ScreenDrag 平级！
-	#if event is InputEventScreenTouch:
-		#var screen_half = get_viewport().get_visible_rect().size.x / 2.0
-		#if event.position.x < screen_half:
-			#return
-		## 同样限制在右半屏，避免干扰左手摇杆
-		#if event.pressed:
-			#drag_distance = 0.0
-		#else:
-				## 手指抬起时，如果移动距离很小，判断为点击
-			#if drag_distance < 15.0: 
-				#shoot()
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventScreenDrag:
+		var screen_half = get_viewport().get_visible_rect().size.x / 2.0
+		if event.position.x < screen_half:
+			return
+		drag_distance += event.relative.length()
+		_rotate_camera(event.relative)
+
+	if event is InputEventScreenTouch:
+		var screen_half = get_viewport().get_visible_rect().size.x / 2.0
+		if event.position.x < screen_half:
+			return
+		if event.pressed:
+			drag_distance = 0.0
+		else:
+			if drag_distance < 15.0: 
+				shoot()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
