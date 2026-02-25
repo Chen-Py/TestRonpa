@@ -78,7 +78,7 @@ custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
-text = "START"
+text = "RESTART"
 script = ExtResource("3_e2p2b")
 
 [node name="ExitButton" type="Button" parent="MarginContainer/Control/VBoxContainer" unique_id=1547213035]
