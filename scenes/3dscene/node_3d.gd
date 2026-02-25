@@ -3,7 +3,7 @@ extends Area3D
 @onready var sprite = $Sprite3D
 @onready var collision = $CollisionShape3D
 @onready var player = get_tree().get_first_node_in_group("player")
-@export var speed := 3.0
+@export var speed := 4.0
 func _ready():
 	pass
 

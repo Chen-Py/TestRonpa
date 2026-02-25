@@ -154,7 +154,7 @@ offset_left = 125.0
 offset_top = 483.0
 offset_right = 1021.0
 offset_bottom = 566.0
-text = "滑动左下屏幕操作摇杆移动，滑动右半屏幕控制视角，点击右半屏幕射击
+text = "操作摇杆移动，滑动右半屏幕控制视角，点击右半屏幕射击
 被黑白熊抓到则游戏结束"
 label_settings = SubResource("LabelSettings_y1o0p")
 horizontal_alignment = 1
