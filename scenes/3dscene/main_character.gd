@@ -48,6 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event is InputEventScreenDrag:
 		if event.index == rotate_finger_index and event.index != joystick._touch_index:
+			if event.relative.length() > 200 : return
 			drag_distance += event.relative.length()
 			_rotate_camera(event.relative)
 
