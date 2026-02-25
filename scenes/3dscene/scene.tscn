@@ -88,7 +88,6 @@ autostart = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813596828]
 
 [node name="VirtualJoystickPlus" type="Control" parent="CanvasLayer" unique_id=1317461769]
-visible = false
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 3
 anchors_preset = 0

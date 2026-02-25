@@ -35,23 +35,18 @@ var rotate_finger_index = -1
 			#if drag_distance < 15.0: 
 				#shoot()
 func _unhandled_input(event: InputEvent) -> void:
-	# 1. 触摸按下/松开逻辑
 	if event is InputEventScreenTouch:
 		var is_right_side = event.position.x > get_viewport().get_visible_rect().size.x / 2.0
 		
 		if event.pressed and is_right_side and rotate_finger_index == -1:
-			# 只有在右侧按下，且当前没有手指在操作时，才绑定这根手指
 			rotate_finger_index = event.index
 			drag_distance = 0.0
 		elif event.index == rotate_finger_index and not event.pressed:
-			# 绑定的手指松开了，判断是否射击
 			if drag_distance < 15.0:
 				shoot()
-			rotate_finger_index = -1 # 解除绑定
+			rotate_finger_index = -1
 
-	# 2. 滑动逻辑
 	if event is InputEventScreenDrag:
-		# 只处理被绑定的那根手指，完全无视左手摇杆的干扰
 		if event.index == rotate_finger_index:
 			drag_distance += event.relative.length()
 			_rotate_camera(event.relative)
