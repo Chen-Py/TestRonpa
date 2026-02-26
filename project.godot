@@ -24,6 +24,7 @@ config/icon="res://assets/sprites/icon.png"
 
 GGT="*res://addons/ggt-core/ggt.gd"
 GGT_DebugShortcuts="*res://addons/ggt-debug-shortcuts/autoload/debug_shortcuts.tscn"
+Global="*uid://cl8ul4q4beyde"
 
 [category]
 

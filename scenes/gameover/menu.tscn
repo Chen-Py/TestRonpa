@@ -148,5 +148,14 @@ theme_type_variation = &"LabelSmall"
 theme_override_colors/font_color = Color(0.886275, 0.87451, 0.87451, 1)
 text = "Developer 3"
 
+[node name="ScoreLabel" type="Label" parent="." unique_id=1777569668]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 218.0
+offset_right = 653.0
+offset_bottom = 264.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

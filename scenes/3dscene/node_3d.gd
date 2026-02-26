@@ -3,12 +3,15 @@ extends Area3D
 @onready var sprite = $Sprite3D
 @onready var collision = $CollisionShape3D
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var score_label = get_tree().get_first_node_in_group("ScoreLabel")
 @export var speed := 4.0
 func _ready():
 	pass
 
 func on_hit():
-	print("被击中")
+	Global.score += 1
+	score_label.text = "Score: " + str(Global.score)
+	print(Global.score)
 	queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

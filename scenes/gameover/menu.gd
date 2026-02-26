@@ -2,10 +2,12 @@ extends Control
 
 @onready var btn_play = $MarginContainer/Control/VBoxContainer/PlayButton
 @onready var btn_exit = $MarginContainer/Control/VBoxContainer/ExitButton
+@onready var score_label: Label = $ScoreLabel
 
 
 func _ready():
 	# needed for gamepads to work
+	score_label.text = "Total Score: " + str(Global.score)
 	btn_play.grab_focus()
 	if OS.has_feature('web'):
 		btn_exit.queue_free() # exit button dosn't make sense on HTML5

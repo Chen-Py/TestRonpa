@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://eh6ckiwjwi5d"]
 
 [ext_resource type="PackedScene" uid="uid://blj3jhliukg0a" path="res://scenes/3dscene/main_character.tscn" id="1_tlo7v"]
+[ext_resource type="Script" uid="uid://dpqdpebvr16h0" path="res://scenes/3dscene/scene.gd" id="1_w25vs"]
 [ext_resource type="Texture2D" uid="uid://tvhj1qh81ob5" path="res://assets/background.jpeg" id="2_1kc1q"]
 [ext_resource type="Script" uid="uid://chvigj2efp557" path="res://scenes/3dscene/spawner.gd" id="3_4rmgp"]
 [ext_resource type="PackedScene" uid="uid://fvo4rcwl0y63" path="res://scenes/3dscene/kuma.tscn" id="4_mjw6c"]
@@ -48,6 +49,7 @@ data = PackedVector3Array(0, 5, 15, 1.4703, 5, 14.927799, 0, 3, 15, 1.4703, 5, 1
 backface_collision = true
 
 [node name="Scene" type="Node3D" unique_id=1073007379]
+script = ExtResource("1_w25vs")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=210943684]
 environment = SubResource("Environment_1kc1q")
@@ -101,3 +103,9 @@ joystick_mode = 1
 joystick_texture = ExtResource("6_w25vs")
 stick_texture = ExtResource("7_1rkcs")
 metadata/_custom_type_script = "uid://ow6p8a5equkj"
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=335367029 groups=["ScoreLabel"]]
+offset_left = 1019.0
+offset_top = 12.0
+offset_right = 1131.0
+offset_bottom = 40.0
