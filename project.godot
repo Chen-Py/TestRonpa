@@ -33,6 +33,7 @@ property_name=1
 [display]
 
 window/stretch/mode="canvas_items"
+window/handheld/orientation=2
 
 [editor_plugins]
 
